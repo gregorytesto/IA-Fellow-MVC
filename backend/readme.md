@@ -9,10 +9,10 @@ const sequelize = new Sequelize('postgres://postgres@localhost:5432/fellowMVC');
 psql
 
 create database fellowMVC;
-
+```
 
 https://www.postgresqltutorial.com/psql-commands/
-
+```
 psql -d fellowmvc;
 
 switch db
