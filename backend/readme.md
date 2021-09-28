@@ -9,7 +9,7 @@ Commands to create new DB
 ```
 psql
 
-create database fellowMVC;
+create database fellowmvc;
 
 \c fellowmvc;
 ```

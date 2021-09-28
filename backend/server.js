@@ -18,7 +18,9 @@ db.sequelize.sync();
 //   console.log("Drop and re-sync db.");
 // });
 
-require("./app/routes/fellow.routes")(app);
+const fellowRoutes = require('./app/routes/fellow.routes');
+
+app.use("/api/fellows", fellowRoutes);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, ()=>{

@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize("sqlite::memory:");
+const sequelize = new Sequelize('postgres://postgres@localhost:5432/fellowmvc');
 
 module.exports = {
     Sequelize,
