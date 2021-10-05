@@ -1,23 +1,35 @@
-import { useEffect } from 'react';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function App() {
+import { DisplayAllFellows, DisplayFellow } from "./fellow";
 
-  let getFellows=async()=>{
-    let response = await fetch('http://localhost:8080/api/fellows');
-    let fellows = await response.json();
-    console.log(fellows);
-  }
 
-  useEffect(()=>{
-    getFellows();
-  }, []);
-
+export default function App() {
   return (
-    <div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Fellows</Link>
+            </li>
+          </ul>
+        </nav>
 
-    </div>
+        <Switch>
+          <Route path="/fellows/:id">
+            <DisplayFellow />
+          </Route>
+          <Route path="/">
+            <DisplayAllFellows />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
-export default App;
