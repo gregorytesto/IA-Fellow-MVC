@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import './App.css';
 import { DisplayAllFellows, DisplayFellow } from "./fellow";
 
 

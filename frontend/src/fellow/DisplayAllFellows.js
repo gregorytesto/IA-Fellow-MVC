@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+
+import { Link } from 'react-router-dom';
 
 let DisplayAllFellows=()=>{
     let [fellows, setFellows] = useState([]);
@@ -14,18 +16,18 @@ let DisplayAllFellows=()=>{
 
     let fellowsToRender = fellows.map(({id, name, cohort, age})=>{
         return (
-            <div key={id}>
-                <h3>Name: { name }</h3>
+            <Link key={id} to={"/fellows/" + id}>
+                <div>Name: { name }</div>
                 <div>Cohort: { cohort }</div>
                 <div>Age: { age } </div>
-            </div>
+            </Link>
         )
     })
 
     return(
         <>
             <div>Display All Fellows</div>
-            <div>
+            <div id="fellow-list">
                 { fellowsToRender }
             </div>
         </>
