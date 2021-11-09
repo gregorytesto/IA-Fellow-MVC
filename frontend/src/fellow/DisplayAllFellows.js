@@ -14,13 +14,23 @@ let DisplayAllFellows=()=>{
         getFellows();
     }, []);
 
+    let handleDeleteFellow=async(id)=>{
+        await fetch('http://localhost:8080/api/fellows/' + id, {
+            method: "DELETE"
+        });
+        getFellows();
+    }
+
     let fellowsToRender = fellows.map(({id, name, cohort, age})=>{
         return (
-            <Link key={id} to={"/fellows/" + id}>
-                <div>Name: { name }</div>
-                <div>Cohort: { cohort }</div>
-                <div>Age: { age } </div>
-            </Link>
+            <div key={id} className="fellow_item">
+                <div onClick={()=>handleDeleteFellow(id)} className="close">X</div>
+                <Link  to={"/fellows/" + id}>
+                    <div>Name: { name }</div>
+                    <div>Cohort: { cohort }</div>
+                    <div>Age: { age } </div>
+                </Link>
+            </div>
         )
     })
 

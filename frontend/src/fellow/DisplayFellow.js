@@ -17,7 +17,9 @@ let DisplayFellow=()=>{
     return(
         <>
             <div>Display Fellow</div>
-            <div>{fellow?.name}</div>
+            <div>Name: {fellow?.name}</div>
+            <div>Cohort: {fellow?.cohort}</div>
+            <div>Age: {fellow?.age}</div>
         </>
     )
 }

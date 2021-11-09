@@ -11,14 +11,32 @@ body{
   margin: 10px;
 }
 #fellow-list a{
-  padding: 30px;
-  background-color: lightblue;
-  border-radius: 20px;
   color: black;
   text-decoration: none;
+}
+
+#fellow-list .fellow_item{
+  padding: 20px;
+  background-color: lightblue;
+  border-radius: 20px;
   transition: all .333s;
 }
-#fellow-list a:hover{
+
+#fellow-list .fellow_item:hover{
   background-color: darkblue;
+}
+
+#fellow-list a:hover{
+  color: white;
+}
+
+.close {
+  float: right;
+  background-color: white;
+  padding: 3px;
+  cursor: pointer;
+}
+.close:hover {
+  background-color: black;
   color: white;
 }
