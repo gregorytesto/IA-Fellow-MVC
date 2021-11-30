@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 let DisplayFellow=()=>{
     let { id } = useParams();
@@ -20,6 +20,7 @@ let DisplayFellow=()=>{
             <div>Name: {fellow?.name}</div>
             <div>Cohort: {fellow?.cohort}</div>
             <div>Age: {fellow?.age}</div>
+            <Link to={"/fellows/update/" + fellow?.id}>Update</Link>
         </>
     )
 }

@@ -1,11 +1,9 @@
 import DisplayAllFellows from './DisplayAllFellows';
 import DisplayFellow from './DisplayFellow';
-import CreateFellow from './CreateFellow';
-import UpdateFellow from './UpdateFellow';
+import FellowForm from './FellowForm';
 
 export {
     DisplayAllFellows,
     DisplayFellow,
-    CreateFellow,
-    UpdateFellow
+    FellowForm
 }

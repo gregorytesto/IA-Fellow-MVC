@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
-import { CreateFellow, DisplayAllFellows, DisplayFellow } from "./fellow";
+import { FellowForm, DisplayAllFellows, DisplayFellow } from "./fellow";
 
 
 export default function App() {
@@ -25,7 +25,8 @@ export default function App() {
         </nav>
 
         <Switch>
-          <Route path="/fellows/create" component={CreateFellow} />
+          <Route path="/fellows/update/:id" component={FellowForm} />
+          <Route path="/fellows/create" component={FellowForm} />
           <Route path="/fellows/:id" component={DisplayFellow} />
           <Route path="/" component={DisplayAllFellows} />
         </Switch>

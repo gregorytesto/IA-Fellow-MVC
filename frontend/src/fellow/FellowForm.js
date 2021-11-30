@@ -1,17 +1,31 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 
-let CreateFellow=()=>{
+let FellowForm=()=>{
     let history = useHistory();
+    let { id } = useParams();
 
     let [ formObj, setFormObj ] = useState({});
+
+    const fetchFellowData=async()=>{
+        let res = await fetch("http://localhost:8080/api/fellows/" + id);
+        let fellowData = await res.json();
+        setFormObj(fellowData);
+    }
+
+    useEffect(()=>{
+        fetchFellowData();
+    }, []);
     
     const handleSubmit=async(event)=>{
         event.preventDefault();
 
-        // console.log(JSON.stringify(formObj));
-        let res = await fetch("http://localhost:8080/api/fellows", {
-            method: "POST",
+        let url = "http://localhost:8080/api/fellows";
+
+        if(id) url += "/" + id;
+
+        let res = await fetch(url, {
+            method: id ? "PUT" : "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -29,19 +43,19 @@ let CreateFellow=()=>{
 
     return(
         <div>
-            <div>Create Fellow Form</div>
+            <div>{ id ? "Update" : "Create" } Fellow Form</div>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name: </label>
-                    <input onInput={handleInput} name="name" type="text" id="name"/>
+                    <input onInput={handleInput} value={formObj?.name} name="name" type="text" id="name"/>
                 </div>
                 <div>
                     <label htmlFor="age">Age: </label>
-                    <input onInput={handleInput} name="age" type="text" id="age"/>
+                    <input onInput={handleInput} value={formObj?.age} name="age" type="text" id="age"/>
                 </div>
                 <div>
                     <label htmlFor="cohort">Cohort: </label>
-                    <input onInput={handleInput} name="cohort" type="text" id="cohort"/>
+                    <input onInput={handleInput} value={formObj?.cohort} name="cohort" type="text" id="cohort"/>
                 </div>
                 <button>Submit</button>
             </form>
@@ -50,4 +64,4 @@ let CreateFellow=()=>{
     )
 }
 
-export default CreateFellow;
+export default FellowForm;
