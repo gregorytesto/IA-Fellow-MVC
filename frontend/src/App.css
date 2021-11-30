@@ -23,11 +23,7 @@ body{
 }
 
 #fellow-list .fellow_item:hover{
-  background-color: darkblue;
-}
-
-#fellow-list a:hover{
-  color: white;
+  background-color: #66a0b1;
 }
 
 .close {

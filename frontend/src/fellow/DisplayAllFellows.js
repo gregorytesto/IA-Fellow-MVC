@@ -38,6 +38,11 @@ let DisplayAllFellows=()=>{
         <>
             <div>Display All Fellows</div>
             <div id="fellow-list">
+                <div className="fellow_item">
+                    <Link to={"/fellows/create"}>
+                        Create New Fellow
+                    </Link>
+                </div>
                 { fellowsToRender }
             </div>
         </>

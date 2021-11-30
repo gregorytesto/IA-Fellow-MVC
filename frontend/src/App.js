@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
-import { DisplayAllFellows, DisplayFellow } from "./fellow";
+import { CreateFellow, DisplayAllFellows, DisplayFellow } from "./fellow";
 
 
 export default function App() {
@@ -18,16 +18,16 @@ export default function App() {
             <li>
               <Link to="/">Fellows</Link>
             </li>
+            <li>
+              <Link to="/fellows/create">Create</Link>
+            </li>
           </ul>
         </nav>
 
         <Switch>
-          <Route path="/fellows/:id">
-            <DisplayFellow />
-          </Route>
-          <Route path="/">
-            <DisplayAllFellows />
-          </Route>
+          <Route path="/fellows/create" component={CreateFellow} />
+          <Route path="/fellows/:id" component={DisplayFellow} />
+          <Route path="/" component={DisplayAllFellows} />
         </Switch>
       </div>
     </Router>
